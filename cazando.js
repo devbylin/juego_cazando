@@ -14,17 +14,25 @@ let comidaX = 300;
 let comidaY = 200;
 let puntos = 0;
 let tiempo = 10;
+let intervalo;
+let juegoActivo = true;
 
 function iniciarJuego() {
+    if(intervalo) clearInterval(intervalo);
+    intervalo = setInterval(restarTiempo,1000);
+
     gatoX = (canvas.width - ANCHO_GATO) / 2;
     gatoY = (canvas.height - ALTO_GATO) / 2;
     comidaX = 0;
     comidaY = canvas.height - 30;
+    puntaje = 0;
+    tiempo = 10;
     graficarGato();
     graficarComida();
     aparecerComida();
     moverComidaAleatoria();
     actualizarPantalla();
+    
 }
 function graficarRectangulo(x, y, ancho, alto, color) {
     ctx.fillStyle = color;
@@ -64,10 +72,17 @@ function moverAbajo() {
     }
 }
 function actualizarPantalla() {
+    if (!juegoActivo) return;
     limpiarCanvas();
     graficarGato();
     graficarComida();
     detectarColision();
+}
+function aparecerComida(){
+    comidaX = generarAleatorio(0,canvas.width - ANCHO_COMIDA);
+    comidaY = generarAleatorio(0,canvas.height - ALTO_COMIDA);
+    actualizarPantalla();
+    
 }
 function moverComidaAleatoria(){
     aparecerComida();
@@ -79,16 +94,20 @@ function detectarColision() {
         gatoY + ALTO_GATO > comidaY &&
         gatoY < comidaY + ALTO_COMIDA
     );
-    if (colision){
+    if (colision && juegoActivo){
         puntos = puntos + 1;
         mostrarEnSpan("txtPuntos", puntos);
-      aparecerComida();
+        aparecerComida();
     }
     
 }
-function aparecerComida(){
-    comidaX = generarAleatorio(0,canvas.width - ANCHO_COMIDA);
-    comidaY = generarAleatorio(0,canvas.height - ALTO_COMIDA);
-    actualizarPantalla();
+
+function restarTiempo(){
+    tiempo = tiempo -1;
+    mostrarEnSpan("txtTiempo", tiempo);
+    if (tiempo <= 0){
+        clearInterval(intervalo);
+        juegoActivo = false;
+    }
     
 }
