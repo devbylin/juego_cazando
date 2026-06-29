@@ -120,3 +120,12 @@ function restarTiempo(){
     }
 
 }
+function reiniciarJuego(){
+    tiempo = 10;
+    puntaje = 0;
+    juegoActivo = true; 
+    mostrarEnSpan("txtTiempo", tiempo);
+    mostrarEnSpan("txtPuntaje", puntaje);
+    iniciar();
+    
+}
