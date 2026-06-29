@@ -12,7 +12,7 @@ let gatoX = 100;
 let gatoY = 100;
 let comidaX = 300;
 let comidaY = 200;
-let puntos = 0;
+let puntaje = 0;
 let tiempo = 10;
 let intervalo;
 let juegoActivo = true;
@@ -94,9 +94,17 @@ function detectarColision() {
         gatoY + ALTO_GATO > comidaY &&
         gatoY < comidaY + ALTO_COMIDA
     );
+
     if (colision && juegoActivo){
-        puntos = puntos + 1;
-        mostrarEnSpan("txtPuntos", puntos);
+        puntaje = puntaje + 1;
+        mostrarEnSpan("txtPuntaje", puntaje);
+
+        if (puntaje == 6) {
+        juegoActivo = false;
+        clearInterval(intervalo);
+            alert("🎉 ¡FELICITACIONES! 🎉\n\nHas alcanzado los 6 puntos.\n¡Eres el GANADOR!");
+            return;
+        }
         aparecerComida();
     }
     
@@ -108,6 +116,7 @@ function restarTiempo(){
     if (tiempo <= 0){
         clearInterval(intervalo);
         juegoActivo = false;
+        alert("⏰ ¡TIEMPO AGOTADO!\n\nPuntaje final: " + puntaje);
     }
-    
+
 }
