@@ -1,36 +1,55 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Juego Cazando</title>
-    <link rel="stylesheet" href="cazando.css"/>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUEGO CAZANDO</title>
+    <link rel="stylesheet" href="cazando.css">
     <script src="utilitarios.js"></script>
-  </head>
-  <body onload="iniciarJuego()">
+</head>
+<body onload="iniciarJuego()">
 
-    <h1>Juego Cazando</h1>
-    <p>Autor: Herlin Peñaherrera</p>
-    <canvas id="areaJuego" width="500" height="400"></canvas>
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="title-container">
+                <h1>JUEGO CAZANDO</h1>
+                <p class="subtitle">¡Atrapa los objetivos antes de que se escapen!</p>
+            </div>
+            <div class="author">Autor: Herlin Peñaherrera</div>
+        </header>
 
+        <!-- Canvas -->
+        <div class="canvas-wrapper">
+            <canvas id="areaJuego" width="500" height="400"></canvas>
+        </div>
 
-    <div class="controles">
-      <button onclick="moverArriba()">⬆</button>
-      <br>
-      <button onclick="moverIzquierda()">⬅</button>
-      <button onclick="moverAbajo()">⬇</button>
-      <button onclick="moverDerecha()">➡</button><br>
-      <button onclick="reiniciarJuego()">REINICIAR</button>
+        <!-- Stats -->
+        <div class="stats-panel">
+            <div class="stat">
+                <span class="stat-label">PUNTOS</span>
+                <span class="stat-value" id="txtPuntaje">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">TIEMPO</span>
+                <span class="stat-value" id="txtTiempo">10</span>
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <div class="controls">
+            <button class="ctrl-btn" onclick="moverArriba()">⬆</button>
+            <div class="horizontal-controls">
+                <button class="ctrl-btn" onclick="moverIzquierda()">⬅</button>
+                <button class="ctrl-btn reset-btn" onclick="reiniciarJuego()">REINICIAR</button>
+                <button class="ctrl-btn" onclick="moverDerecha()">➡</button>
+            </div>
+            <button class="ctrl-btn" onclick="moverAbajo()">⬇</button>
+        </div>
+
+        <p id="mensaje"></p>
     </div>
 
-
-    <div class="panel">
-      <span>Puntos: <span id="txtPuntaje">0</span></span>
-      <span>Tiempo: <span id="txtTiempo">10</span></span>
-    </div>
-
-    <p id="mensaje"></p>
-
-     <script src="cazando.js"></script>
-  </body>
- 
-    
+    <script src="cazando.js"></script>
+</body>
 </html>
