@@ -4,8 +4,10 @@
     box-sizing: border-box;
 }
 
+/* ===================== FONDO ANIMADO DEL BODY ===================== */
 body {
-    background: linear-gradient(135deg, #253049f5, #1e2937);
+    background: linear-gradient(rgba(10, 10, 20, 0.45), rgba(20, 10, 35, 0.55)), 
+                url('https://images.unsplash.com/photo-1542751371-adc38448a05e') center/cover no-repeat fixed;
     color: #e2e8f0;
     font-family: 'Segoe UI', 'Arial', sans-serif;
     text-align: center;
@@ -14,16 +16,40 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Efecto de partículas sutiles en el fondo */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(103, 232, 249, 0.08) 0%, transparent 70%);
+    animation: float 30s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -40px) scale(1.1); }
+}
+
+/* Contenedor del juego */
 .game-container {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(15, 23, 42, 0.88);
     backdrop-filter: blur(12px);
     border: 2px solid #FF6B35;
     border-radius: 20px;
     padding: 25px;
     max-width: 560px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 2;
 }
 
 /* Header */
@@ -57,18 +83,17 @@ body {
 /* Canvas */
 .canvas-wrapper {
     position: relative;
-    margin: 20px auto;
-    border-radius: 12px;
+    margin: 25px auto;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.3),
-                0 0 25px rgba(255, 107, 53, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
 canvas {
-    background: #faf8f8b9;           /* ← Cambiado a blanco */
-    border: 3px solid #FF6B35;
-    border-radius: 8px;
-    image-rendering: pixelated;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtE-qHFu2q0q2feSBksvwfGlVxWRA3cZZEXw&s') 
+                center/cover no-repeat;
+    border: 5px solid #22d3ee;
+    border-radius: 12px;
 }
 
 /* Stats Panel */
