@@ -1,0 +1,9 @@
+PROMPTS #1(CAMBIO DEL ESTILO DE INTERFAZ DEL JUEGO )
+Mejora la interfaz grafica de estos archivos dándole un aspecto mas gamer 
+y realiza mejoras en todos los aspectos tanto como 
+color, tipografía, botones, iconos, puntaje, vidas.. etc.. 
+NOTA: No cambiar datos importantes solo modificar el diseño, 
+adicional quiero los archivos de códigos por separado ..
+
+PROMPTS #2(CAMBIO DEL ESTILO DE INTERFAZ DEL JUEGO )
+Haz un cambio en el fondo del canvas a un color blanco suave

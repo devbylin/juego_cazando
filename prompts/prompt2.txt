@@ -1,0 +1,4 @@
+PROMPTS #1(fondo en el canvas )
+agrega un fondo gamer al background
+mejora la interfaz del fondo del canvas agrega un fondo colorido y animado..
+
