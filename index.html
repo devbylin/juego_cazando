@@ -3,53 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JUEGO CAZANDO</title>
+    <title>🎯 JUEGO CAZANDO</title>
     <link rel="stylesheet" href="cazando.css">
     <script src="utilitarios.js"></script>
 </head>
-<body onload="iniciarJuego()">
+<body onload="iniciar()">
 
     <div class="game-container">
-        <!-- Header -->
         <header class="game-header">
-            <div class="title-container">
-                <h1>JUEGO CAZANDO</h1>
-                <p class="subtitle">¡Atrapa los objetivos antes de que se escapen!</p>
-            </div>
-            <div class="author">Autor: Herlin Peñaherrera</div>
+            <h1>🎯 JUEGO CAZANDO</h1>
+            <p class="subtitle">¡Atrapa los objetivos antes de que se escapen!</p>
+            <p class="author">✧ Autor: Herlin Peñaherrera</p>
         </header>
 
-        <!-- Canvas -->
         <div class="canvas-wrapper">
-            <canvas id="areaJuego" width="500" height="400"></canvas>
+            <canvas id="areaJuego" width="500" height="500"></canvas>
         </div>
 
-        <!-- Stats -->
         <div class="stats-panel">
             <div class="stat">
-                <span class="stat-label">PUNTOS</span>
+                <span class="stat-label">🏆 PUNTOS</span>
                 <span class="stat-value" id="txtPuntaje">0</span>
             </div>
             <div class="stat">
-                <span class="stat-label">TIEMPO</span>
+                <span class="stat-label">⏱️ TIEMPO</span>
                 <span class="stat-value" id="txtTiempo">10</span>
             </div>
         </div>
 
-        <!-- Controles -->
         <div class="controls">
-            <button class="ctrl-btn" onclick="moverArriba()">⬆</button>
+            <button class="ctrl-btn" onclick="moverArriba()" aria-label="Arriba">⬆</button>
             <div class="horizontal-controls">
-                <button class="ctrl-btn" onclick="moverIzquierda()">⬅</button>
-                <button class="ctrl-btn reset-btn" onclick="reiniciarJuego()">REINICIAR</button>
-                <button class="ctrl-btn" onclick="moverDerecha()">➡</button>
+                <button class="ctrl-btn" onclick="moverIzquierda()" aria-label="Izquierda">⬅</button>
+                <button class="ctrl-btn reset-btn" onclick="reiniciarJuego()">🔄 REINICIAR</button>
+                <button class="ctrl-btn" onclick="moverDerecha()" aria-label="Derecha">➡</button>
             </div>
-            <button class="ctrl-btn" onclick="moverAbajo()">⬇</button>
+            <button class="ctrl-btn" onclick="moverAbajo()" aria-label="Abajo">⬇</button>
         </div>
 
         <p id="mensaje"></p>
     </div>
-
     <script src="cazando.js"></script>
 </body>
 </html>
